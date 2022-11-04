@@ -1,0 +1,44 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+img{
+    width: 100%;
+    display: block;
+    position: absolute;
+}
+.slide-img-container{
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 700px;
+    max-height: 300px;
+    object-fit: contain;
+}
+.btn-container{
+    display: flex;
+    position: absolute;
+    justify-content: space-between;
+    flex-direction: column;
+    margin: 0 19.5rem;
+}
+.empety-box{
+    width: 100%;    
+    margin: 22rem 0;
+}
+.dot{
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+    border-radius: 50%;
+    background-color: red;
+    opacity: .2;
+    margin-left: .5rem;
+    margin-right: .5rem;
+}
+
+.dot.active{
+    opacity: 1;
+}
