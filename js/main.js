@@ -17,3 +17,67 @@
 //1. Costruiamo del carosello una versione statica contenente solamente un’immagine. Di questa versione statica al momento opportuno commenteremo (oscureremo) alcuni elementi per poterli riprodurre dinamicamente in js. Potremo quindi usarli come “template”.
 //2. Scriviamo sempre prima per punti il nostro algoritmo in italiano per capire cosa vogliamo fare
 //3. Al momento giusto (ihihhi starà a voi capire quale) rispondete a questa domanda: “Quanti cicli servono?”
+
+const images = [
+    "img/01.webp",
+    "img/02.webp",
+    "img/03.webp",
+    "img/04.webp",
+    "img/05.webp"
+];
+
+let currentImgIndex = 0;
+
+const slideImgEl = document.querySelector(".slide-img");
+const slideContainerEl = document.querySelector(".slide-img-container");
+const btnNext = document.getElementById("btnNext");
+const btnPrev = document.getElementById("btnPrev");
+
+slideImgEl.src = images[ currentImgIndex];
+
+// for (let i = 0; i < images.lenght; i++){
+//     let active = "";
+    
+//     if (active === 0){
+//         active = "active";
+//     }
+//     slideContainerEl.innerHTML += `<img class="slide-img ${ active } "></img>`;
+// }
+
+btnNext.addEventListener("click", function () {
+    console.log("next btn click");
+
+    // const oldImg = document.querySelector(`.slide-img-container :nth-child(${currentImgIndex + 1 })`);
+    // oldImg.classList.remove( "active" );
+
+    const ultimoIndexDisponibile = images.lenght -1;
+
+    if( currentImgIndex > ultimoIndexDisponibile) {
+        currentImgIndex = ultimoIndexDisponibile;
+    }
+
+    currentImgIndex++;
+
+    slideImgEl.src = images[currentImgIndex];
+
+    //riattivo le immagini 
+    // const newImg = document.querySelector(`.slide-img-container :nth-child(${ currentImgIndex + 1})`);
+    // newImg.classList.add("active");
+});
+
+btnPrev.addEventListener("click", function () {
+    console.log("Prev btn click");
+
+    // const oldImg = document.querySelector(`.slide-img-container :nth-child(${currentImgIndex + 1 })`);
+    // oldImg.classList.remove( "active" );
+
+    currentImgIndex--;
+
+    if( currentImgIndex < 0 ){
+        currentImgIndex = ultimoIndexDisponibile;
+    }
+    slideImgEl.src = images[ currentImgIndex ];
+
+    // const img = document.querySelector(`.slide-img-container :nth-child(${ currentImgIndex + 1})`);
+    // img.classList.add("active");
+});

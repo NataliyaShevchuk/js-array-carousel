@@ -1,13 +1,13 @@
 const images = [ // questo è un array 
-    "img/01.jp",
-    "img/01.jp",
-    "img/01.jp",
-    "img/01.jp",
-    "img/01.jp"
+    "img/01.webp",
+    "img/02.webp",
+    "img/03.webp",
+    "img/04.webp",
+    "img/05.webp"
 ];
 let currentImgIndex = 0;
 
-const slideImgEl = document.querySelector(".slider-img");
+const slideImgEl = document.querySelector(".slide-img");
 const dotsContainerEl = document.querySelector(".dots-container");
 const btnNext = document.getElementById("slider-btn-next");
 const btnPrev = document.getElementById("slider-btn-prev");
@@ -23,18 +23,25 @@ slideImgEl.src = images[ currentImgIndex ];
 //Creazioine pallini delle slide
 for(let i = 0; i < images.length; i++) {
     //versione con HTML
-    let active = "";
+    // let active = "";
 
     //se i è 0, sono al primo ciclo, quindi il primo elemeno della mia lista
-    if (i === 0){
-        active = "active"
-    }
+    // if (i === 0){
+    //     active = "active"
+    // }
 
-    dotsContainerEl.innerHTML += `<div class="dot"></div>`
+    // dotsContainerEl.innerHTML += `<div class="dot"></div>`;
 
-    // oppure possiamo usare la versione con createRlement()
+    // oppure possiamo usare la versione con createElement()
     const dotEl = document.createElement ("div");
     dotEl.classList.add( "dot" );
+
+      // se i è 0, sono al primo ciclo, quindi il primo elemento della mia lista
+    if ( i === 0 ) {
+        dotEl.classList.add( "active" );
+    }
+
+    dotsContainerEl.append( dotEl );
 }
 
 //*********************************************** */
@@ -56,16 +63,17 @@ btnNext.addEventListener( "click", function (){
 
     //se dopo aver incrementato currenImgIndex, questa ha un valore maggiore 
     // dell'ultimo indice valido nel nostro array,
-    //sovrascrivo currenImgIndex con un valore vaalido
+    //sovrascrivo currenImgIndex con un valore valido
     if ( currentImgIndex > ultimoIndiceDisponibile) {
         currentImgIndex = ultimoIndiceDisponibile;
     }
 
+    
     //abbiamo incrementato il contatore per tenere traccia dell'indice attuale 
     currentImgIndex++;
     //una volta fatto quello -aggiorno l'src dell'immagine prendendo dall'array l'elemento 
     //che indice uguale a currentImgIndex
-    slideImgEl.src = images[ currentImgIndex ];
+    slideImgEl.src =images [ currentImgIndex ];
 
     //devo aaggiornare i pallini 
     //recupero da dots-container il figlio uguale all'indice dell'immagine attiva
@@ -88,7 +96,7 @@ oldDot.classList.remove( "active" );
 
     //se currentImgIndex è minore di 0, lo reimposto a =
     if ( currentImgIndex < 0 ){
-        currentImgIndex =ultimoIndiceDisponibile
+        currentImgIndex =ultimoIndiceDisponibile;
     }
     slideImgEl.src = images[ currentImgIndex ];
 
