@@ -20,7 +20,7 @@ const btnPrev = document.getElementById("slider-btn-prev");
 
 slideImgEl.src = images[ currentImgIndex ];
 
-//Creazioine pallini delle slide
+//Creazione pallini delle slide
 for(let i = 0; i < images.length; i++) {
     //versione con HTML
     // let active = "";

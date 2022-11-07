@@ -53,7 +53,7 @@ btnNext.addEventListener("click", function () {
     const ultimoIndexDisponibile = images.lenght -1;
 
     if( currentImgIndex > ultimoIndexDisponibile) {
-        currentImgIndex = ultimoIndexDisponibile;
+        currentImgIndex = 0;
     }
 
     currentImgIndex++;
