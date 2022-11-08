@@ -35,31 +35,44 @@ const btnPrev = document.getElementById("btnPrev");
 
 slideImgEl.src = images[ currentImgIndex];
 
-// for (let i = 0; i < images.lenght; i++){
-//     let active = "";
+for (let i = 0; i < images.lenght; i++){
+    let active = "";
     
-//     if (active === 0){
-//         active = "active";
-//     }
-//     slideContainerEl.innerHTML += `<img class="slide-img ${ active } "></img>`;
-// }
+    if (active === 0){
+        active = "active";
+    }
+    slideContainerEl.innerHTML += `<img class="slide-img ${ active } "></img>`;
+}
+
+for (let i = 0; i < images.lenght; i++){
+    //stringa contenente l'url di una singola immagine
+    const nowImg = images[ i ];
+
+    const imgEl = document.createElement("img");
+
+    imgEl.src = nowImg;
+    imgEl.classList.add("img-fluid", "da-js");
+
+    slideContainerEl.append( imgEl );
+
+}
 
 btnNext.addEventListener("click", function () {
     console.log("next btn click");
 
     // const oldImg = document.querySelector(`.slide-img-container :nth-child(${currentImgIndex + 1 })`);
     // oldImg.classList.remove( "active" );
+    currentImgIndex++;
 
-    const ultimoIndexDisponibile = images.lenght -1;
+    const ultimoIndexDisponibile = images.length -1;
 
     if( currentImgIndex > ultimoIndexDisponibile) {
         currentImgIndex = 0;
     }
 
-    currentImgIndex++;
-
+    
     slideImgEl.src = images[currentImgIndex];
-
+    
     //riattivo le immagini 
     // const newImg = document.querySelector(`.slide-img-container :nth-child(${ currentImgIndex + 1})`);
     // newImg.classList.add("active");
