@@ -36,15 +36,6 @@ const btnPrev = document.getElementById("btnPrev");
 slideImgEl.src = images[ currentImgIndex];
 
 for (let i = 0; i < images.lenght; i++){
-    let active = "";
-    
-    if (active === 0){
-        active = "active";
-    }
-    slideContainerEl.innerHTML += `<img class="slide-img ${ active } "></img>`;
-}
-
-for (let i = 0; i < images.lenght; i++){
     //stringa contenente l'url di una singola immagine
     const nowImg = images[ i ];
 
